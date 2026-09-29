@@ -33,6 +33,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Fix React Native dependency
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: npm pkg delete overrides.react-native
+
       - name: Install dependencies
         working-directory: ${{ env.PROJECT_DIR }}
         run: npm install --legacy-peer-deps
