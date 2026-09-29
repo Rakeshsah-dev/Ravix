@@ -43,7 +43,9 @@ jobs:
 
       - name: Generate Android project
         working-directory: ${{ env.PROJECT_DIR }}
-        run: npm run prebuild:clean
+        run: |
+          node -e "const fs=require('fs'); const p='app.config.js'; let s=fs.readFileSync(p,'utf8'); s=s.replace(/export default \\{/,'export default {'); fs.writeFileSync(p,s)"
+          npm run prebuild:clean
 
       - name: Build Ravix APK
         working-directory: ${{ env.PROJECT_DIR }}/android
