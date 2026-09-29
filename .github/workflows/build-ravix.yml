@@ -35,7 +35,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ${{ env.PROJECT_DIR }}
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Generate Android project
         working-directory: ${{ env.PROJECT_DIR }}
